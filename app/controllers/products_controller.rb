@@ -1,7 +1,7 @@
 class ProductsController < ApplicationController
   def index
     @products = Product.all
-    render json: articles
+    render json: @products
   end
 
   def new
