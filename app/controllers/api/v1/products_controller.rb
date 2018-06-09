@@ -17,7 +17,7 @@ class Api::V1::ProductsController < ApplicationController
 		if product.update(product_params)
 			render json: product
 		else 
-			render json: { errors: note.errors}, status: 422 
+			render json: { errors: product.errors}, status: 422 
 		end		
 	end
 
