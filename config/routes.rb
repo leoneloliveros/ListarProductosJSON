@@ -1,6 +1,18 @@
 Rails.application.routes.draw do
-  get 'api/v1/products' => 'products#index'
-  # resources :products
+  resources :products
+
+  # Api definition
+  namespace :api do
+    namespace :v1 do
+      resources :products, :only => [:index]
+    end
+  end
+  # namespace :api, defaults: { format: :json }, constraints: { subdomain: 'api' }, path: '/'  do
+  #   scope module: :v1 do
+  #     # We are going to list our resources here
+  #     resources :products, :only => [:index]
+  #   end
+  # end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
