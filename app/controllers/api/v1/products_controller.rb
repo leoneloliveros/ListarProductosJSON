@@ -23,9 +23,9 @@ class Api::V1::ProductsController < ApplicationController
 
 	def destroy
 		product = Product.find(params[:id])
-		product.destroy
-		render status: 204
-		head :no_content		
+		if product.destroy
+			render status:204, nothing: true	
+		end
 	end
    private
     def product_params
